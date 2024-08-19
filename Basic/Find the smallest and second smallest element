@@ -1,0 +1,29 @@
+class Solution {
+  public:
+    vector<int> minAnd2ndMin(vector<int> &arr) {
+        // code here
+       int min1,min2,size=arr.size();
+       vector<int>result(2);
+       if(size==1){
+           result={-1};
+       }
+        else{
+            min1=min(arr[0],arr[1]);
+            min2=max(arr[0],arr[1]);
+            for(int i=2;i<size;i++){
+                if(arr[i]<min1){
+                    min2=min1;
+                    min1=arr[i];
+            }
+                else if(arr[i]<min2 && arr[i]!=min1)
+                    min2=arr[i];
+            }
+        if(min2==min1)
+            result={-1};
+        else
+            result={min1,min2};
+        }
+        return result;
+        
+       }
+};
