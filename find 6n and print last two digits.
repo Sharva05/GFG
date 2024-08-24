@@ -1,0 +1,41 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int main() {
+    long long T;
+    cin >> T;
+    string n;
+    while (T--) {
+        cin >>n;
+        if (n == "0") {
+            cout << "1" << endl;
+            continue;
+        }
+        if (n == "1") {
+            cout << "6" << endl;
+            continue;
+        }
+        n=n.substr(n.length()-1);
+        int num = stoi(n);
+        num%=5;
+        switch (num) {
+            case 0:
+                cout << "76" << endl;
+                break;
+            case 1:
+                cout << "56" << endl;
+                break;
+            case 2:
+                cout << "36" << endl;
+                break;
+            case 3:
+                cout << "16" << endl;
+                break;
+            default:
+                cout << "96" << endl;
+                break;
+        }
+    }
+    return 0;
+}
