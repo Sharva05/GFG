@@ -1,0 +1,21 @@
+class Solution {
+  public:
+    long long solve(vector<int>& bt) {
+        sort(bt.begin(),bt.end());/*smallest processor is executed 
+        first and wait_time a processor must include every wait_time 
+        of each processors before it.We cant calculate if its 
+        unordered*/
+        long long total_time=0,wait_time=0;
+        for(int process_time:bt){
+            total_time+=process_time;
+            wait_time=wait_time+(total_time-process_time);/*1)after 
+            executing one by one processors it goes back again and 
+            again.So we have to add every wait_time of all previous
+            processors.
+            2)not including the process_time because thats 
+            not waiting*/
+        }
+        //avg wait_time
+        return wait_time/bt.size();
+    }
+};
