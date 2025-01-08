@@ -1,14 +1,14 @@
-class Solution {
+ class Solution {
   public:
     vector<int> lcmAndGcd(int a, int b) {
         // code here
         int mn=min(a,b),mx=max(a,b),lcm=mx,gcd;
-        for(int i=mn;i>0;i--){
-            if(a%i==0 && b%i==0){
-                gcd=i;
-                break;
-            }
+        // Euclidean Algorithm to get i fewest ietrations
+        while(a!=0 && b!=0){
+            if(a<b) b%=a;
+            else a%=b;
         }
+        gcd=max(a,b);
             int i=2;
         while(lcm%mn!=0) lcm=mx*i++;
         return{lcm,gcd};
